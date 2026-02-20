@@ -1,0 +1,824 @@
+/* 
+   ANTI-GRAVITY NGO DESIGN SYSTEM 
+   Based on Professional Humanitarian Standards (e.g., CARE)
+*/
+
+:root {
+    /* Primary Colors */
+    --primary-red: #D32F2F;
+    /* Main Action Color */
+    --primary-hover: #B71C1C;
+    /* Darker Red for Hover */
+    --secondary-blue: #0A6EBD;
+    /* Trust/Medical Color */
+
+    /* Neutral Colors */
+    --dark-bg: #222222;
+    /* Top Bar / Footer */
+    --text-main: #333333;
+    /* Body Text */
+    --text-light: #777777;
+    /* Subtitles */
+    --white: #FFFFFF;
+    --light-gray-bg: #F9FAFB;
+    /* Section Backgrounds */
+    --border-color: #E5E7EB;
+
+    /* Typography */
+    --font-heading: 'Inter', 'Roboto', sans-serif;
+    --font-body: 'Inter', 'Roboto', sans-serif;
+
+    /* Spacing & Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+    --border-radius: 8px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--white);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* UTILITIES */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--dark-bg);
+}
+
+/* 1. TOP BAR */
+.topbar {
+    background-color: var(--dark-bg);
+    color: #ccc;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.topbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-right a {
+    color: #fff;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+/* 2. MAIN HEADER */
+.main-header {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo h1 {
+    color: var(--primary-red);
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-red);
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.header-actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* 3. HERO SECTION */
+.hero {
+    position: relative;
+    height: 600px;
+    /* Background Removed for Slideshow */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* SLIDESHOW STYLES */
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideAnimation 25s infinite;
+}
+
+/* Stagger animations for 5 slides (5s each) */
+.slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.slide:nth-child(4) {
+    animation-delay: 15s;
+}
+
+.slide:nth-child(5) {
+    animation-delay: 20s;
+}
+
+@keyframes slideAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    4% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Dark Transparent Layer */
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-content {
+    max-width: 600px;
+    color: var(--white);
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.hero-donation-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+}
+
+.mini-card {
+    background: var(--white);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.mini-card:hover {
+    transform: translateY(-3px);
+}
+
+.mini-card strong {
+    display: block;
+    color: var(--text-main);
+}
+
+.mini-card span {
+    color: var(--primary-red);
+    font-weight: 700;
+}
+
+/* 4. QUICK ACTION ICON ROW */
+.quick-actions {
+    background: var(--primary-red);
+    padding: 30px 0;
+    margin-top: -5px;
+    /* Ensure connection with hero */
+}
+
+.action-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.action-item {
+    text-align: center;
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.action-item:hover {
+    transform: scale(1.1);
+}
+
+.action-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.action-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* 5. ACTIVITIES SECTION */
+.activities {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.activity-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: 0.3s;
+}
+
+.activity-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.activity-img {
+    height: 200px;
+    background: #ddd;
+    /* Placeholder colors for now */
+}
+
+.img-1 {
+    background: url('../assets/slide2.jpg') center/cover;
+}
+
+.img-2 {
+    background: url('../assets/slide3.jpg') center/cover;
+}
+
+.img-3 {
+    background: url('../assets/slide4.jpg') center/cover;
+}
+
+.img-education {
+    background: url('../assets/slide1.jpg') center/cover;
+}
+
+.activity-content {
+    padding: 25px;
+}
+
+.activity-content h3 {
+    margin-bottom: 10px;
+    color: var(--dark-bg);
+}
+
+.activity-content a {
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* 6. IMPACT NUMBERS */
+.impact {
+    padding: 80px 0;
+    background: var(--light-gray-bg);
+    text-align: center;
+}
+
+.impact-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.impact-item h3 {
+    font-size: 3rem;
+    color: var(--primary-red);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.impact-item p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* 7. DONATION SECTION */
+.donation-section {
+    padding: 80px 0;
+    background: var(--white);
+    text-align: center;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.donate-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.donate-card:hover {
+    border-color: var(--primary-red);
+    box-shadow: var(--shadow-lg);
+}
+
+.donate-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.amount {
+    font-size: 2rem;
+    color: var(--primary-red);
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* 8. VOLUNTEER CTA */
+.volunteer-cta {
+    background: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+    padding: 100px 0;
+    position: relative;
+    text-align: center;
+    color: var(--white);
+}
+
+.volunteer-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.volunteer-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+.volunteer-cta h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+/* 9. FOOTER */
+.site-footer {
+    background: var(--dark-bg);
+    color: #aaa;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-red);
+}
+
+.copyright {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    /* Mobile Menu would go here */
+    .hero {
+        height: auto;
+        padding: 100px 0;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-donation-cards {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .action-grid {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+/* 10. QUICK ACTION MODAL */
+.modal-overlay {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    /* White background so it feels like a page */
+    z-index: 2000;
+    overflow-y: auto;
+    /* Enable scrolling for the whole page */
+    /* Removed flex centering so content flows naturally from top */
+    display: none;
+}
+
+.modal-content {
+    background: var(--white);
+    width: 100%;
+    min-height: 100vh;
+    /* Full viewport height at minimum */
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+    padding-top: 60px;
+    /* clear the close button */
+    display: block;
+    /* Normal block flow */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--dark-bg);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    background: var(--primary-red);
+}
+
+/* Modal Gallery */
+.modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background: #f0f0f0;
+}
+
+.modal-gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.modal-text {
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-text h3 {
+    margin-bottom: 15px;
+    color: var(--primary-red);
+    font-size: 2rem;
+}
+
+.modal-text p {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 11. PAYMENT MODAL STYLES */
+.payment-modal-content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+}
+
+.payment-header {
+    border-bottom: 2px solid var(--light-gray-bg);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.bank-info-box {
+    background: var(--light-gray-bg);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.bank-info-box h4 {
+    color: var(--primary-red);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bank-info-box p {
+    margin-bottom: 5px;
+    color: var(--dark-bg);
+    font-size: 0.95rem;
+}
+
+.payment-instructions p {
+
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* SPLASH SCREEN */
+/* SPLASH SCREEN */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Ensure full viewport height */
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    /* Max z-index */
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.splash-content {
+    text-align: center;
+    animation: fadeInBalance 1s ease-out;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.splash-icon {
+    font-size: 4rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    display: block;
+    animation: pulseIcon 2s infinite;
+}
+
+.splash-content h1 {
+    font-size: 2rem;
+    /* Balanced size */
+    color: var(--primary-red);
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.splash-content p {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInBalance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
