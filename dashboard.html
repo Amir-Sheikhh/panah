@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - PANAH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-red);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 5px;
+            color: var(--dark-bg);
+        }
+
+        .profile-info p {
+            color: #666;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+
+        .history-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .history-section h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .history-table th {
+            background: #f9f9f9;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-pending {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1 style="font-size: 20px;">PANAH</h1>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="sponsor.html">Sponsor</a>
+                <a href="#" onclick="handleLogout()">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Profile Card -->
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="profile-info">
+                <h2 id="userName">Loading...</h2>
+                <p id="userEmail">Loading...</p>
+                <p><small id="memberSince">Member since: -</small></p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalSponsorships">0</div>
+                <div>Active Sponsorships</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalDonations">PKR 0</div>
+                <div>Total Contribution</div>
+            </div>
+        </div>
+
+        <!-- History -->
+        <div class="history-section">
+            <h3>Sponsorship History</h3>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Child / Cause</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <!-- Rows will be injected via JS -->
+                    <tr>
+                        <td colspan="4" style="text-align:center; color:#999;">No sponsorship history found.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=18"></script>
+    <script>
+        // Dashboard Logic
+        window.addEventListener('load', () => {
+            const user = JSON.parse(localStorage.getItem('panah_user'));
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Populate Profile
+            document.getElementById('userName').innerText = user.name;
+            document.getElementById('userEmail').innerText = user.email;
+            document.getElementById('memberSince').innerText = `Member since: ${new Date().getFullYear()}`;
+
+            // Populate History
+            const history = JSON.parse(localStorage.getItem('panah_history')) || [];
+            const tbody = document.getElementById('historyTableBody');
+            const totalSponsorshipsEl = document.getElementById('totalSponsorships');
+            const totalDonationsEl = document.getElementById('totalDonations');
+
+            if (history.length > 0) {
+                tbody.innerHTML = '';
+                let totalAmount = 0;
+
+                history.reverse().forEach(item => {
+                    totalAmount += parseInt(item.amount.replace(/[^0-9]/g, ''));
+
+                    const row = `
+            <tr>
+              <td><strong>${item.name}</strong></td>
+              <td>${item.amount}</td>
+              <td>${item.date}</td>
+              <td><span class="status-badge status-active">Active</span></td>
+            </tr>
+          `;
+                    tbody.innerHTML += row;
+                });
+
+                totalSponsorshipsEl.innerText = history.length;
+                totalDonationsEl.innerText = `PKR ${totalAmount.toLocaleString()}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

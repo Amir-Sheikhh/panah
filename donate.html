@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Now | PANAH UNDER CARE YARDIMLASMA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=12">
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- 1. TOP BAR -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <span><i class="fa-solid fa-phone"></i> +92 300 0000000</span>
+                <span style="margin-left: 15px;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Available</span>
+            </div>
+            <div class="topbar-right">
+                <a href="?lang=en">EN</a> | <a href="?lang=ur">UR</a> | <a href="?lang=tr">TR</a>
+                <a href="#"><i class="fa-solid fa-user"></i> Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1 style="font-size: 20px;">PANAH UNDER CARE YARDIMLASMA</h1>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" id="nav-home">Home</a>
+                <a href="about.html" id="nav-about">About</a>
+                <a href="activities.html" id="nav-activities">Activities</a>
+                <a href="#" id="nav-media">Media</a>
+                <a href="help.html" id="nav-contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="donate.html" class="btn btn-primary" id="btn-donate">Donate</a>
+                <a href="#" class="btn btn-secondary">Sponsor</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-title" style="padding: 60px 0; background-color: var(--light-gray-bg); text-align: center;">
+        <div class="container">
+            <h1 class="section-title" style="margin-bottom: 10px;" data-i18n="donate-page-title">Support Our Cause</h1>
+            <p style="color: var(--text-light);" data-i18n="donate-page-subtitle">Your donation brings hope to those in
+                need.</p>
+        </div>
+    </section>
+
+    <!-- DONATION OPTIONS -->
+    <section class="donation-section">
+        <div class="container">
+            <div class="donation-grid">
+                <div class="donate-card">
+                    <i class="fa-solid fa-bowl-rice"
+                        style="font-size: 3rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+                    <h3 data-i18n="donate-food-title">Food Package</h3>
+                    <span class="amount">PKR 5,000</span>
+                    <p data-i18n="donate-food-desc">Feeds a family of 5 for a month with essential flour, oil, sugar,
+                        and pulses.</p>
+                    <button class="btn btn-primary" onclick="openPaymentModal('Food Package', 'PKR 5,000')"
+                        style="margin-top: 20px; width: 100%;" data-i18n="btn-donate-package">Donate Package</button>
+                </div>
+                <div class="donate-card"
+                    style="border-color: var(--primary-red); box-shadow: var(--shadow-lg); transform: scale(1.05);">
+                    <i class="fa-solid fa-heart-pulse"
+                        style="font-size: 3rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+                    <h3 data-i18n="donate-medical-title">Medical Aid</h3>
+                    <span class="amount">PKR 10,000</span>
+                    <p data-i18n="donate-medical-desc">Provides emergency medicines, checkups, and surgeries for
+                        critical patients.</p>
+                    <button class="btn btn-primary" onclick="openPaymentModal('Medical Aid', 'PKR 10,000')"
+                        style="margin-top: 20px; width: 100%;" data-i18n="btn-donate-health">Donate Health</button>
+                </div>
+                <div class="donate-card">
+                    <i class="fa-solid fa-child"
+                        style="font-size: 3rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+                    <h3 data-i18n="donate-orphan-title">Orphan Sponsorship</h3>
+                    <span class="amount">PKR 15,000</span>
+                    <p data-i18n="donate-orphan-desc">Provides education, food, shelter, and healthcare.</p>
+                    <button class="btn btn-primary" onclick="openPaymentModal('Orphan Sponsorship', 'PKR 15,000')"
+                        style="margin-top: 20px; width: 100%;" data-i18n="btn-sponsor-now">Sponsor Now</button>
+                </div>
+            </div>
+
+            <!-- OTHER WAYS TO DONATE -->
+            <div
+                style="margin-top: 60px; background: #fff; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+                <h3 style="margin-bottom: 20px; color: var(--dark-bg);" data-i18n="bank-transfer-title">Bank Transfer
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <strong data-i18n="bank-name-label">Bank Name:</strong> Habib Bank Limited (HBL)<br>
+                        <strong data-i18n="account-title-label">Account Title:</strong> PANAH UNDER CARE YARDIMLASMA<br>
+                        <strong data-i18n="account-no-label">Account Number:</strong> 1234-79008123-01<br>
+                        <strong data-i18n="iban-label">IBAN:</strong> PK00HABB0012347900812301
+                    </div>
+                    <div>
+                        <strong data-i18n="mobile-payment-label">EasyPaisa / JazzCash:</strong><br>
+                        0300-1234567 (Muhammad Ali)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer-about-title">About PANAH UNDER CARE YARDIMLASMA</h4>
+                    <p data-i18n="footer-about-desc">We are dedicated to uplifting vulnerable communities through
+                        sustainable development and
+                        emergency relief.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer-quick-links">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+                        <li><a href="activities.html" data-i18n="nav-activities">Our Activities</a></li>
+                        <li><a href="donate.html" data-i18n="btn-donate">Donate</a></li>
+                        <li><a href="volunteer.html" data-i18n="nav-volunteer">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer-contact">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-phone"></i> +92 300 0000000</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@panahvcare.org</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-address">Islamabad,
+                                Pakistan</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 PANAH UNDER CARE YARDIMLASMA. <span data-i18n="footer-rights">All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" class="modal-overlay" onclick="closePaymentModal(event)">
+        <div class="modal-content payment-modal-content">
+            <span class="close-modal" onclick="closePaymentModal(event)">&times;</span>
+            <div class="payment-header">
+                <i class="fa-solid fa-hand-holding-dollar"
+                    style="font-size: 3rem; color: var(--primary-red); margin-bottom: 10px;"></i>
+                <h3 id="paymentTitle">Donate</h3>
+                <p id="paymentAmount" style="font-size: 1.5rem; font-weight: bold; color: var(--dark-bg);">PKR 0</p>
+            </div>
+
+            <div class="payment-details">
+                <div class="bank-info-box">
+                    <h4><i class="fa-solid fa-building-columns"></i> Bank Transfer</h4>
+                    <p><strong>Bank:</strong> Habib Bank Limited (HBL)</p>
+                    <p><strong>Title:</strong> PANAH UNDER CARE YARDIMLASMA</p>
+                    <p><strong>Account:</strong> 1234-79008123-01</p>
+                    <p><strong>IBAN:</strong> PK00HABB0012347900812301</p>
+                </div>
+
+                <div class="bank-info-box" style="margin-top: 15px;">
+                    <h4><i class="fa-solid fa-mobile-screen"></i> EasyPaisa / JazzCash</h4>
+                    <p style="font-size: 1.2rem; font-weight: bold;">0300-1234567</p>
+                    <p>(Muhammad Ali)</p>
+                </div>
+
+                <div class="payment-instructions" style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                    <p data-i18n="payment-instr-1">1. Please transfer the amount using one of the methods above.</p>
+                    <p data-i18n="payment-instr-2">2. Send a screenshot of the receipt to our WhatsApp: <strong>+92 300
+                            1234567</strong>.</p>
+                    <p data-i18n="payment-instr-3">3. We will confirm your donation and send a receipt.</p>
+                </div>
+
+                <a href="https://wa.me/923001234567" target="_blank" class="btn btn-primary"
+                    style="width: 100%; margin-top: 20px;">
+                    <i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn-send-whatsapp">Send Receipt on
+                        WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=12"></script>
+    </script>
+    </script>
+
+</body>
+
+</html>

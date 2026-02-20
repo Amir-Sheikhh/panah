@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor a Child - PANAH UNDER CARE YARDIMLASMA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sponsor-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/slide3.jpg');
+            /* Reuse existing asset */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+
+        .sponsor-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h3 {
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1 style="font-size: 20px;">PANAH</h1>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="sponsor.html" class="active">Sponsor</a>
+                <a href="login.html" id="nav-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="sponsor-hero">
+        <div class="container">
+            <h1>Sponsor a Child Today</h1>
+            <p>Change a life forever. Your sponsorship provides food, education, and hope.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="sponsor-grid">
+            <!-- Child 1 -->
+            <div class="sponsor-card">
+                <div class="card-img" style="background-image: url('assets/slide4.jpg');"></div>
+                <div class="card-body">
+                    <h3>Ahmed (8 Years)</h3>
+                    <div class="card-meta">
+                        <span><i class="fa-solid fa-location-dot"></i> Punjab</span>
+                        <span><i class="fa-solid fa-school"></i> Class 2</span>
+                    </div>
+                    <p>Ahmed lost his father last year. He loves to study and wants to become a doctor.</p>
+                    <div style="margin-top: 15px; font-weight: bold; color: var(--dark-bg);">PKR 4,000 / Month</div>
+                    <button class="btn btn-primary" onclick="handleSponsorship('Ahmed', 'PKR 4,000')"
+                        style="width: 100%; margin-top: 15px;">Sponsor Ahmed</button>
+                </div>
+            </div>
+
+            <!-- Child 2 -->
+            <div class="sponsor-card">
+                <div class="card-img" style="background-image: url('assets/slide5.jpg');"></div>
+                <div class="card-body">
+                    <h3>Fatima (6 Years)</h3>
+                    <div class="card-meta">
+                        <span><i class="fa-solid fa-location-dot"></i> Sindh</span>
+                        <span><i class="fa-solid fa-school"></i> Class 1</span>
+                    </div>
+                    <p>Fatima lives with her grandmother. She needs support for her school uniform and books.</p>
+                    <div style="margin-top: 15px; font-weight: bold; color: var(--dark-bg);">PKR 4,000 / Month</div>
+                    <button class="btn btn-primary" onclick="handleSponsorship('Fatima', 'PKR 4,000')"
+                        style="width: 100%; margin-top: 15px;">Sponsor Fatima</button>
+                </div>
+            </div>
+
+            <!-- Child 3 -->
+            <div class="sponsor-card">
+                <div class="card-img" style="background-image: url('assets/slide2.jpg');"></div>
+                <div class="card-body">
+                    <h3>Ali Family (Widow Support)</h3>
+                    <div class="card-meta">
+                        <span><i class="fa-solid fa-location-dot"></i> KPK</span>
+                        <span><i class="fa-solid fa-users"></i> 4 Members</span>
+                    </div>
+                    <p>Supporting a widow with 3 children. Helping them with monthly rations and rent.</p>
+                    <div style="margin-top: 15px; font-weight: bold; color: var(--dark-bg);">PKR 15,000 / Month</div>
+                    <button class="btn btn-primary" onclick="handleSponsorship('Ali Family', 'PKR 15,000')"
+                        style="width: 100%; margin-top: 15px;">Sponsor Family</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAYMENT MODAL (Copied from index.html for consistency) -->
+    <div id="paymentModal" class="modal-overlay" onclick="closePaymentModal(event)"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;">
+        <div class="modal-content payment-modal-content"
+            style="background:#fff; width:90%; max-width:500px; margin:50px auto; padding:30px; border-radius:10px; position:relative;">
+            <span class="close-modal" onclick="closePaymentModal(event)"
+                style="position:absolute; top:15px; right:20px; font-size:30px; cursor:pointer;">&times;</span>
+            <div class="payment-header" style="text-align:center;">
+                <i class="fa-solid fa-hand-holding-dollar"
+                    style="font-size: 3rem; color: #D32F2F; margin-bottom: 10px;"></i>
+                <h3 id="paymentTitle">Donate</h3>
+                <p id="paymentAmount" style="font-size: 1.5rem; font-weight: bold; color: #1a1a1a;">PKR 0</p>
+            </div>
+
+            <div class="payment-details">
+                <div class="bank-info-box"
+                    style="background:#f9f9f9; padding:15px; border-radius:8px; margin-top:20px;">
+                    <h4><i class="fa-solid fa-building-columns"></i> Bank Transfer</h4>
+                    <p><strong>Bank:</strong> Habib Bank Limited (HBL)</p>
+                    <p><strong>Title:</strong> PANAH UNDER CARE YARDIMLASMA</p>
+                    <p><strong>Account:</strong> 1234-79008123-01</p>
+                </div>
+
+                <a href="https://wa.me/923001234567" target="_blank" class="btn btn-primary"
+                    style="display:block; text-align:center; background:#D32F2F; color:#fff; padding:12px; border-radius:5px; text-decoration:none; margin-top: 20px;">
+                    <i class="fa-brands fa-whatsapp"></i> Send Receipt on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=17"></script>
+</body>
+
+</html>
