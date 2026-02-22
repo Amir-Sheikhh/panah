@@ -13,16 +13,16 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=12">
+    <!-- ✅ Styles in ROOT -->
+    <link rel="stylesheet" href="./style.css">
 
-    <!-- Font Awesome (for icons) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- 1. TOP BAR -->
+    <!-- TOP BAR -->
     <div class="topbar">
         <div class="container">
             <div class="topbar-left">
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <!-- 2. MAIN HEADER -->
+    <!-- HEADER -->
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">
@@ -44,78 +44,69 @@
             </a>
 
             <nav class="nav-menu">
-                <a href="index.html" id="nav-home">Home</a>
-                <a href="about.html" id="nav-about">About</a>
-                <a href="activities.html" style="color: var(--primary-red);" id="nav-activities">Activities</a>
-                <a href="#" id="nav-media">Media</a>
-                <a href="help.html" id="nav-contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="activities.html" style="color: var(--primary-red);">Activities</a>
+                <a href="#">Media</a>
+                <a href="help.html">Contact</a>
             </nav>
 
             <div class="header-actions">
-                <a href="donate.html" class="btn btn-primary" id="btn-donate">Donate</a>
+                <a href="donate.html" class="btn btn-primary">Donate</a>
                 <a href="#" class="btn btn-secondary">Sponsor</a>
             </div>
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
-    <section class="page-title" style="padding: 60px 0; background-color: var(--light-gray-bg); text-align: center;">
+    <!-- PAGE TITLE -->
+    <section class="page-title" style="padding:60px 0; background:var(--light-gray-bg); text-align:center;">
         <div class="container">
-            <h1 class="section-title" style="margin-bottom: 10px;" data-i18n="activities-page-title">Our Activities</h1>
-            <p style="color: var(--text-light);" data-i18n="activities-page-subtitle">Empowering communities through
-                action.</p>
+            <h1 class="section-title">Our Activities</h1>
+            <p style="color:var(--text-light);">Empowering communities through action.</p>
         </div>
     </section>
 
-    <!-- ACTIVITIES GRID -->
-    <section class="activities" style="padding: 80px 0;">
+    <!-- ACTIVITIES -->
+    <section class="activities" style="padding:80px 0;">
         <div class="container">
             <div class="activity-grid">
-                <!-- Card 1 -->
+
                 <div class="activity-card">
                     <div class="activity-img img-1"></div>
                     <div class="activity-content">
-                        <h3 data-i18n="card-emergency-title">Emergency Help for Orphan Children</h3>
-                        <p data-i18n="card-emergency-desc">Rapid response teams providing food, shelter, and medical aid
-                            in disaster zones.</p>
-                        <a href="javascript:void(0)" onclick="openActivityModal('emergency')"
-                            data-i18n="btn-read-case-studies">Read Case Studies &rarr;</a>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="activity-card">
-                    <div class="activity-img img-2"></div>
-                    <div class="activity-content">
-                        <h3 data-i18n="card-food-title">Food & Livelihood</h3>
-                        <p data-i18n="card-food-desc">Distributing ration bags and setting up community kitchens for the
-                            hungry.</p>
-                        <a href="javascript:void(0)" onclick="openActivityModal('food')"
-                            data-i18n="btn-view-projects">View Projects &rarr;</a>
+                        <h3>Emergency Help for Orphan Children</h3>
+                        <p>Rapid response teams providing food, shelter, and medical aid in disaster zones.</p>
+                        <a href="javascript:void(0)" onclick="openActivityModal('emergency')">Read Case Studies →</a>
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="activity-card">
-                    <!-- Placeholder color for image if no url -->
-                    <div class="activity-img img-3"></div>
+                    <div class="activity-img img-2"></div>
                     <div class="activity-content">
-                        <h3 data-i18n="card-health-title">Medical Assistance</h3>
-                        <p data-i18n="card-health-desc">Providing essential medical care and support to those who need
-                            it most.</p>
-                        <a href="#" data-i18n="btn-see-impact">See Impact &rarr;</a>
+                        <h3>Food & Livelihood</h3>
+                        <p>Distributing ration bags and setting up community kitchens for the hungry.</p>
+                        <a href="javascript:void(0)" onclick="openActivityModal('food')">View Projects →</a>
                     </div>
                 </div>
-                <!-- Card 5 (Education) -->
+
+                <div class="activity-card">
+                    <div class="activity-img img-3"></div>
+                    <div class="activity-content">
+                        <h3>Medical Assistance</h3>
+                        <p>Providing essential medical care and support to those who need it most.</p>
+                        <a href="#">See Impact →</a>
+                    </div>
+                </div>
+
                 <div class="activity-card">
                     <div class="activity-img img-education"></div>
                     <div class="activity-content">
-                        <h3 data-i18n="card-education-title">Education & Future Leaders</h3>
-                        <p data-i18n="card-education-desc">Empowering the next generation through scholarships, school
-                            reconstruction, and learning supplies.</p>
-                        <a href="javascript:void(0)" onclick="openActivityModal('education')"
-                            data-i18n="btn-sponsor-student">Sponsor a Student &rarr;</a>
+                        <h3>Education & Future Leaders</h3>
+                        <p>Empowering the next generation through scholarships and learning supplies.</p>
+                        <a href="javascript:void(0)" onclick="openActivityModal('education')">Sponsor a Student →</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -125,56 +116,35 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4 data-i18n="footer-about-title">About PANAH UNDER CARE YARDIMLASMA</h4>
-                    <p data-i18n="footer-about-desc">We are dedicated to uplifting vulnerable communities through
-                        sustainable development and
-                        emergency relief.</p>
+                    <h4>About PANAH</h4>
+                    <p>We uplift vulnerable communities through relief and development.</p>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer-quick-links">Quick Links</h4>
+                    <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
-                        <li><a href="activities.html" data-i18n="nav-activities">Our Activities</a></li>
-                        <li><a href="donate.html" data-i18n="btn-donate">Donate</a></li>
-                        <li><a href="volunteer.html" data-i18n="nav-volunteer">Volunteer</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer-contact">Contact Us</h4>
+                    <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><i class="fa-solid fa-phone"></i> +92 300 0000000</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@panahvcare.org</li>
-                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-address">Islamabad,
-                                Pakistan</span></li>
+                        <li>+92 300 0000000</li>
+                        <li>info@panahvcare.org</li>
+                        <li>Islamabad, Pakistan</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2026 PANAH UNDER CARE YARDIMLASMA. <span data-i18n="footer-rights">All Rights Reserved.</span>
+                © 2026 PANAH UNDER CARE YARDIMLASMA
             </div>
         </div>
     </footer>
 
-    <!-- MODAL FOR QUICK ACTIONS AND ACTIVITIES -->
-    <div id="actionModal" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal(event)">&times;</span>
-            <div id="modalGallery" class="modal-gallery">
-                <!-- Images will be injected here -->
-            </div>
-            <div class="modal-text">
-                <h3 id="modalTitle">Title</h3>
-                <p id="modalDesc">Description goes here.</p>
-                <button id="modalDonateBtn" class="btn btn-primary" style="margin-top: 15px; width: 100%;">Donate to
-                    this
-                    Cause</button>
-            </div>
-        </div>
-    </div>
+    <!-- ✅ JS in ROOT -->
+    <script src="./main.js"></script>
 
-    <script src="js/main.js?v=12"></script>
-    </script>
-    </script>
 </body>
-
 </html>
